@@ -2,8 +2,49 @@ return {
 	{
 		"rose-pine/neovim",
 		name = "rose-pine-dawn",
+		priority = 500,
 		config = function()
 			vim.cmd("colorscheme rose-pine-dawn")
+		end,
+	},
+	{
+		"rebelot/kanagawa.nvim",
+		name = "kanagawa-wave",
+		priority = 500,
+		config = function()
+			vim.cmd("colorscheme kanagawa-wave")
+		end,
+	},
+	{
+		"rebelot/kanagawa.nvim",
+		name = "kanagawa-dragon",
+		priority = 500,
+		config = function()
+			vim.cmd("colorscheme kanagawa-dragon")
+		end,
+	},
+	{
+		"rebelot/kanagawa.nvim",
+		name = "kanagawa-lotus",
+		priority = 500,
+		config = function()
+			vim.cmd("colorscheme kanagawa-lotus")
+		end,
+	},
+	{
+		"catppuccin/nvim",
+		name = "catppuccin-latte",
+		priority = 500,
+		config = function()
+			vim.cmd("colorscheme catppuccin-latte")
+		end,
+	},
+	{
+		"catppuccin/nvim",
+		name = "catppuccin-frappe",
+		priority = 500,
+		config = function()
+			vim.cmd("colorscheme catppuccin-frappe")
 		end,
 	},
 	{ -- You can easily change to a different colorscheme.
@@ -13,7 +54,7 @@ return {
 		-- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
 		"folke/tokyonight.nvim",
 		name = "tokyonight",
-		priority = 100, -- Make sure to load this before all the other start plugins.
+		priority = 500, -- Make sure to load this before all the other start plugins.
 		init = function()
 			-- Load the colorscheme here.
 			-- Like many other themes, this one has different styles, and you could load
@@ -89,6 +130,11 @@ return {
 					},
 
 					--					"tokyonight",
+					"kanagawa-wave",
+					"kanagawa-dragon",
+					"kanagawa-lotus",
+					"catppuccin-latte",
+					"catppuccin-frappe",
 					"rose-pine-dawn",
 				},
 
