@@ -32,6 +32,25 @@ return {
 		end,
 	},
 	{
+		"projekt0n/github-nvim-theme",
+		name = "github-dark",
+		lazy = false, -- make sure we load this during startup if it is your main colorscheme
+		priority = 500, -- make sure to load this before all the other start plugins
+		config = function()
+			vim.cmd("colorscheme github_dark")
+		end,
+	},
+	{
+		"projekt0n/github-nvim-theme",
+		name = "github-light",
+		lazy = false, -- make sure we load this during startup if it is your main colorscheme
+		priority = 500, -- make sure to load this before all the other start plugins
+		config = function()
+			vim.cmd("colorscheme github_light")
+		end,
+	},
+
+	{
 		"catppuccin/nvim",
 		name = "catppuccin-latte",
 		priority = 500,
@@ -136,6 +155,8 @@ return {
 					"catppuccin-latte",
 					"catppuccin-frappe",
 					"rose-pine-dawn",
+					"github_dark",
+					"github_light",
 				},
 
 				--				themes = { "everforest", "tokyonight", "rose-pine-dawn" }, -- Your list of installed colorschemes.
