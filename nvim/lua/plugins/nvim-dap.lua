@@ -17,6 +17,8 @@ return {
 			end
 
 			require("dap").continue()
+			require("dap").set_log_level("INFO") -- Helps when configuring DAP, see logs with :DapShowLog
+
 			-- :RustLsp[!] debuggables
 			vim.keymap.set("n", "<leader>di", ":DapStepInto<CR>", { desc = "Debugger step into" })
 			vim.keymap.set("n", "<leader>dv", ":DapStepOver<CR>", { desc = "Debugger step over" })
@@ -32,5 +34,35 @@ return {
 		config = function()
 			require("dapui").setup()
 		end,
+	},
+	{
+		"jay-babu/mason-nvim-dap.nvim",
+		opts = {
+			handlers = {},
+			-- DAP servers: Mason will be invoked to install these if necessary.
+			ensure_installed = {
+				"delve",
+				"codelldb",
+			},
+		},
+		dependencies = {
+			"mfussenegger/nvim-dap",
+			"williamboman/mason.nvim",
+		},
+	},
+	{
+		"theHamsta/nvim-dap-virtual-text",
+		config = true,
+		dependencies = {
+			"mfussenegger/nvim-dap",
+		},
+	},
+	-- Language Specific Plugins
+	{
+		"leoluz/nvim-dap-go",
+		config = true,
+		dependencies = {
+			"mfussenegger/nvim-dap",
+		},
 	},
 }

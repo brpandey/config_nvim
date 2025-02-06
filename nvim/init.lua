@@ -122,7 +122,11 @@ vim.opt.rtp:prepend(lazypath)
 --
 --  To update plugins you can run
 --    :Lazy update
-require("lazy").setup("plugins")
+require("lazy").setup("plugins", {
+	change_detection = {
+		notify = false,
+	},
+})
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et

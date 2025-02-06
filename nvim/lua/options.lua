@@ -1,7 +1,8 @@
-vim.cmd("set expandtab")
+vim.cmd("set expandtab") -- expand tab to spaces
 vim.cmd("set tabstop=2")
 vim.cmd("set softtabstop=2")
-vim.cmd("set shiftwidth=2")
+vim.cmd("set shiftwidth=2") -- 2 spaces for indent width
+vim.cmd("set autoindent") -- copy indent from current when creating new line
 
 -- [[ Setting options ]]
 -- See `:help vim.opt`
@@ -65,3 +66,11 @@ vim.opt.cursorline = true
 
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.opt.scrolloff = 10
+
+-- Turn off line wrap
+vim.opt.wrap = false
+
+vim.opt.termguicolors = true
+
+-- Backspace
+vim.opt.backspace = "indent,eol,start"
