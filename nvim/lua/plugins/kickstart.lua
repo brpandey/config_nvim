@@ -213,6 +213,9 @@ return {
 			--  Check out: https://github.com/echasnovski/mini.nvim
 		end,
 	},
+	{
+		"christoomey/vim-tmux-navigator", -- tmux & split window navigation
+	},
 }
 
 -- {

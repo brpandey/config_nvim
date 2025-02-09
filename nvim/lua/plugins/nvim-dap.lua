@@ -16,7 +16,7 @@ return {
 				dapui.close()
 			end
 
-			require("dap").continue()
+			dap.continue()
 			require("dap").set_log_level("INFO") -- Helps when configuring DAP, see logs with :DapShowLog
 
 			-- :RustLsp[!] debuggables
