@@ -1,6 +1,13 @@
 return {
 	{
 		"mfussenegger/nvim-dap",
+		enabled = false,
+		dependencies = {
+			{
+				"jay-babu/mason-nvim-dap.nvim",
+				event = "BufReadPre",
+			},
+		},
 		config = function()
 			local dap, dapui = require("dap"), require("dapui")
 			dap.listeners.before.attach.dapui_config = function()
@@ -16,8 +23,21 @@ return {
 				dapui.close()
 			end
 
+			dap.configurations.rust = {
+				{
+					name = "Launch",
+					type = "codelldb",
+					request = "launch",
+					program = function()
+						return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/target/debug/", "file")
+					end,
+					cwd = "${workspaceFolder}",
+					stopOnEntry = false,
+				},
+			}
+
 			dap.continue()
-			require("dap").set_log_level("INFO") -- Helps when configuring DAP, see logs with :DapShowLog
+			dap.set_log_level("INFO") -- Helps when configuring DAP, see logs with :DapShowLog
 
 			-- :RustLsp[!] debuggables
 			vim.keymap.set("n", "<leader>di", ":DapStepInto<CR>", { desc = "Debugger step into" })
@@ -30,6 +50,7 @@ return {
 	},
 	{
 		"rcarriga/nvim-dap-ui",
+		enabled = false,
 		dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" },
 		config = function()
 			require("dapui").setup()
@@ -37,6 +58,7 @@ return {
 	},
 	{
 		"jay-babu/mason-nvim-dap.nvim",
+		enabled = false,
 		opts = {
 			handlers = {},
 			-- DAP servers: Mason will be invoked to install these if necessary.
@@ -50,16 +72,10 @@ return {
 			"williamboman/mason.nvim",
 		},
 	},
-	{
-		"theHamsta/nvim-dap-virtual-text",
-		config = true,
-		dependencies = {
-			"mfussenegger/nvim-dap",
-		},
-	},
 	-- Language Specific Plugins
 	{
 		"leoluz/nvim-dap-go",
+		enabled = false,
 		config = true,
 		dependencies = {
 			"mfussenegger/nvim-dap",
