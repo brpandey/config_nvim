@@ -1,7 +1,7 @@
 return {
 	{
 		"mfussenegger/nvim-dap",
-		enabled = false,
+		enabled = true,
 		dependencies = {
 			{
 				"jay-babu/mason-nvim-dap.nvim",
@@ -50,7 +50,7 @@ return {
 	},
 	{
 		"rcarriga/nvim-dap-ui",
-		enabled = false,
+		enabled = true,
 		dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" },
 		config = function()
 			require("dapui").setup()
@@ -58,7 +58,7 @@ return {
 	},
 	{
 		"jay-babu/mason-nvim-dap.nvim",
-		enabled = false,
+		enabled = true,
 		opts = {
 			handlers = {},
 			-- DAP servers: Mason will be invoked to install these if necessary.
@@ -75,7 +75,7 @@ return {
 	-- Language Specific Plugins
 	{
 		"leoluz/nvim-dap-go",
-		enabled = false,
+		enabled = true,
 		config = true,
 		dependencies = {
 			"mfussenegger/nvim-dap",
